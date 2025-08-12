@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: n01626469-nginx
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hannah2898/N01626469_CCGC5504_FINAL_EXAM.git
+    targetRevision: main
+    path: helm/nginx-app
+    helm:
+      values: |
+        image:
+          repository: docker.io/hannageorge/n01626469-nginx
+          tag: v1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: web
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
