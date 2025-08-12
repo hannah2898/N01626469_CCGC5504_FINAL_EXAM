@@ -1,0 +1,7 @@
+# helm/nginx-app/Chart.yaml
+apiVersion: v2
+name: nginx-app
+description: Simple NGINX site deployed via Helm for GitOps demo
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
